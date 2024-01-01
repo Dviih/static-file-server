@@ -28,3 +28,7 @@ func init() {
 
 	flag.Parse()
 
+	if quic && (tlsCert == "" || tlsKey == "") {
+		quic = false
+	}
+
