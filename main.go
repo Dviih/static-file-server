@@ -49,6 +49,10 @@ func main() {
 
 	fmt.Printf("Listening and serving at %v\n", addr)
 
+	if tlsCert != "" || tlsKey != "" {
+		if quic {
+			e <- http3.ListenAndServe(addr, tlsCert, tlsKey, handler)
+		} else {
 
 	for {
 		select {
