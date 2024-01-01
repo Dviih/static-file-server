@@ -43,3 +43,13 @@ func main() {
 		panic(err)
 	}
 
+	e := make(chan error, 1)
+
+
+	for {
+		select {
+		case err = <-e:
+			panic(err)
+		}
+	}
+}
