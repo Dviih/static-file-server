@@ -32,3 +32,8 @@ func init() {
 		quic = false
 	}
 
+	if (tlsCert != "" || tlsKey != "") && addr == ":80" {
+		addr = ":443"
+	}
+}
+
