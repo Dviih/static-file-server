@@ -37,3 +37,9 @@ func init() {
 	}
 }
 
+func main() {
+	sub, err := fs.Sub(files, "files")
+	if err != nil {
+		panic(err)
+	}
+
