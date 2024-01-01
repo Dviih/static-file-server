@@ -53,6 +53,9 @@ func main() {
 		if quic {
 			e <- http3.ListenAndServe(addr, tlsCert, tlsKey, handler)
 		} else {
+			e <- http.ListenAndServeTLS(addr, tlsCert, tlsKey, handler)
+		}
+	} else {
 
 	for {
 		select {
