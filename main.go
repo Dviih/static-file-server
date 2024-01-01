@@ -45,6 +45,8 @@ func main() {
 
 	e := make(chan error, 1)
 
+	handler := http.FileServer(http.FS(sub))
+
 
 	for {
 		select {
