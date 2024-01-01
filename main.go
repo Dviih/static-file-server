@@ -13,3 +13,10 @@ import (
 //go:embed files
 var files embed.FS
 
+var (
+	addr    = os.Getenv("ADDRESS")
+	tlsCert = os.Getenv("CERT")
+	tlsKey  = os.Getenv("KEY")
+	quic    = os.Getenv("QUIC") != ""
+)
+
