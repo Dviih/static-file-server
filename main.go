@@ -47,6 +47,8 @@ func main() {
 
 	handler := http.FileServer(http.FS(sub))
 
+	fmt.Printf("Listening and serving at %v\n", addr)
+
 
 	for {
 		select {
