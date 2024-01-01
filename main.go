@@ -24,7 +24,7 @@ func init() {
 	flag.StringVar(&addr, "address", ":80", "The address to listen to")
 	flag.StringVar(&tlsCert, "cert", "", "Path to the tls certificate")
 	flag.StringVar(&tlsKey, "key", "", "Path to the tls key")
-	flag.BoolVar(&quic, "quic", true, "Must have `tlsCert` and `tlsKey` to enable QUIC")
+	flag.BoolVar(&quic, "quic", true, "Must have tlsCert and tlsKey to enable QUIC")
 
 	flag.Parse()
 
