@@ -10,3 +10,6 @@ import (
 	"os"
 )
 
+//go:embed files
+var files embed.FS
+
