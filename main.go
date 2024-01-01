@@ -56,6 +56,8 @@ func main() {
 			e <- http.ListenAndServeTLS(addr, tlsCert, tlsKey, handler)
 		}
 	} else {
+		e <- http.ListenAndServe(addr, http.FileServer(http.FS(sub)))
+	}
 
 	for {
 		select {
