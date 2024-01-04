@@ -14,17 +14,25 @@ import (
 var files embed.FS
 
 var (
-	addr    = os.Getenv("ADDRESS")
+	addr    = envDefault("ADDRESS", ":80")
 	tlsCert = os.Getenv("CERT")
 	tlsKey  = os.Getenv("KEY")
-	quic    = os.Getenv("QUIC") != ""
+	quic    = os.Getenv("QUIC") == ""
 )
 
+func envDefault(key, _default string) string {
+	if v := os.Getenv(key); v != "" {
+		return v
+	}
+
+	return _default
+}
+
 func init() {
-	flag.StringVar(&addr, "address", ":80", "The address to listen to")
-	flag.StringVar(&tlsCert, "cert", "", "Path to the tls certificate")
-	flag.StringVar(&tlsKey, "key", "", "Path to the tls key")
-	flag.BoolVar(&quic, "quic", true, "Must have tlsCert and tlsKey to enable QUIC")
+	flag.StringVar(&addr, "address", addr, "The address to listen to")
+	flag.StringVar(&tlsCert, "cert", tlsCert, "Path to the tls certificate")
+	flag.StringVar(&tlsKey, "key", tlsKey, "Path to the tls key")
+	flag.BoolVar(&quic, "quic", quic, "Must have tlsCert and tlsKey to enable QUIC")
 
 	flag.Parse()
 
