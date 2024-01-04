@@ -17,7 +17,7 @@ var (
 	addr    = envDefault("ADDRESS", ":80")
 	tlsCert = os.Getenv("CERT")
 	tlsKey  = os.Getenv("KEY")
-	quic    = os.Getenv("QUIC") != ""
+	quic    = os.Getenv("QUIC") == ""
 )
 
 func envDefault(key, _default string) string {
